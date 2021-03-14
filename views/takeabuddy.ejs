@@ -1,0 +1,67 @@
+<%- include("partials/header"); -%> 
+<div id="mapid"></div>
+  <div class="container1" width="1" height="1">
+    <!-- <div id="title">Choose your buddy</div> -->
+    <form action="/findbuddy" method="post">
+      <input type="text" name="start" id="start" placeholder="Enter your city">
+      <button type="button" name="button">Find buddies nearby</button>
+
+      <!--<input name="reason" type="radio" id="shopping" value="shopping">
+                <label for="shopping">Grocery/Shopping</label><br>
+                <input name="reason" type="radio" id="commute" value="commute">
+                <label for="commute">Travel Home/Office</label><br>
+                <input name="reason" type="radio" id="sos" value="sos">
+                <label for="sos">Feeling Unsafe</label><br>
+                <input name="reason" type="radio" id="other" value="other">
+                <label for="other">Other</label><br>
+                <input type="reset" value="Reset">-->
+    </form>
+
+    <div class="name-list">
+      <ul>
+        <li>
+          <div class="profile profile-name">Swati</div>
+          <div class="contact-person"><img src="./images/phone-call.svg" alt="" width="25px" height="25px"></div>
+          <div class="contact-person"><img src="./images/chat.svg" alt="" width="25px" height="25px"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  </div>
+  <script>
+    var buddy = <%- JSON.stringify(curBuddy) %> ;
+    var curlat = parseFloat(buddy.lat);
+    var curlon = parseFloat(buddy.lon);
+    var mymap = L.map('mapid').setView([curlat, curlon], 13);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+maxZoom: 18,
+id: 'mapbox/streets-v11',
+tileSize: 512,
+zoomOffset: -1,
+accessToken: 'pk.eyJ1IjoibG9sbGEtc2FpIiwiYSI6ImNrbTlhMHFybjFmdjEyeGp4OGxsbDgzMWUifQ.0TuzGxjt9l2jBpvfoPDVyA'
+}).addTo(mymap);
+
+var buds = <%- JSON.stringify(buds) %> ;
+buds.forEach(bud => {
+var lat = parseFloat(bud.lat);
+var lon = parseFloat(bud.lon);
+var marker = L.marker([lat,lon]).addTo(mymap);
+console.log(lat);
+console.log(lon);
+marker.bindPopup("<b style='color: red'>"+bud.name+"</b>").openPopup();
+});
+
+/*
+for
+var marker = L.marker([15.2679587947549, 73.97115555688737]).addTo(mymap);
+marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+
+var str = toString(lat)+toString(long);
+*/
+
+</script>
+</body>
+
+</html>

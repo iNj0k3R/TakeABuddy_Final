@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lang="en-IN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Sai Lolla">
+
+        <title>v2.0</title>
+        <link rel="stylesheet" href="PROJECTv2.css">
+
+        <style>
+            header, section, footer, nav, aside, article, main, figure {
+                display: block;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+            *, *::after, *::before {
+                font-family: Arial, Helvetica, sans-serif;
+                box-sizing: border-box;
+            }
+
+            .login {
+                background: #3B4C63;
+                color: white;
+                width: 50%;
+                height: 100vh;
+                position: relative;
+                display: inline-block;
+            }
+
+            .sign_up {
+                position: absolute;
+                background: rgba(214,231,255,1);
+                border: 1px solid black;
+                display: inline-block;
+                width: 50%;
+                height: 100vh;
+            }
+
+            .login form, .sign_up form {
+                width: 90%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .login>h1, .sign_up h1 {
+                width: fit-content;
+                margin: auto;
+                margin-bottom: 40px;
+                position: absolute;
+                top: 10%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .login input[type="text"]::placeholder, .login input[type="password"]::placeholder {
+                color: rgba(255,255,255, 0.86);
+            }
+
+            .login input[type="text"], .login input[type="password"], .sign_up input[type="tel"], .sign_up input[type="email"], .sign_up input[type="password"], .sign_up input[type="text"] {
+                color: white;
+                background: rgba(255,255,255,0.3);
+                border-radius: 7px;
+                display: block;
+                outline: none;
+                border: none;
+                padding: 10px 20px;
+                margin: 30px auto;
+                width: 80%;
+            }
+
+            .login label {
+                color: rgba(229,229,229,0.71);
+            }
+
+            .login input[type="checkbox"], .sign_up input[type="checkbox"] {
+                margin-left: 10%;
+            }
+
+            .login input[type="submit"], .sign_up input[type="submit"] {
+                display: block;
+                padding: 10px 20px;
+                border-radius: 7px;
+                border: none;outline: none;
+                cursor: pointer;
+                width: 80%;
+                margin: auto;
+                margin-top: 50px;
+            }
+
+            .sign_up input[type="text"] {
+                display: block;
+            }
+
+            .sign_up h1 {
+                top: 5%;
+            }
+
+            .sign_up input[type="submit"] {
+                margin-top: 20px;
+                background: rgba(157,197,255,1);
+
+            }
+        </style>
+
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+        <div class="login">
+            <h1>Log In</h1>
+            <form action="/login" method="post" autocomplete="off">
+                <input type="text" name="uname" id="uname" placeholder="Username or Email Address">
+                <input type="password" name="pwd" id="pwd" placeholder="Password">
+                <input type="checkbox" name="save" id="save">
+                <label for="save">Remember me</label>
+                <input type="submit" value="Log In">
+            </form>
+        </div><!--
+    --><div class="sign_up">
+            <h1>Sign Up</h1>
+            <form action="/signup" method="post" autocomplete="off">
+                <input type="text" name="fname" id="fname" placeholder="Full Name">
+                <input type="tel" name="phno" id="phno" placeholder="Phone No.">
+                <input type="email" name="emailid" id="emailid" placeholder="Email Address">
+                <input type="password" name="pwd" id="pwd" placeholder="Password">
+                <input type="text" name="addr" id="addr" placeholder="Residential Address">
+                <input type="checkbox" name="save" id="save">
+                <label for="save">Remember me</label>
+                <input type="submit" value="Sign Up">
+        </div>
+    </body>
+</html>

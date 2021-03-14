@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en-IN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Sai Lolla">
+
+  <title>Take a Buddy</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+  <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <![endif]-->
+
+  <!-- <script>
+    if (document.getElementById('other').checked == true) {
+      document.getElementById('shopping').style.display = none;
+    }
+  </script> -->
+
+</head>
+
+<body>
+  <nav class="main">
+    <span>Take a Buddy</span>
+    <ul class="navlinks">
+      <li><a href="#home">Home</a></li>
+      <!--
+                -->
+      <li><a href="#about">About</a></li>
+      <!--
+                -->
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+    <ul class="auth">
+      <li><a href="#log_in">Log in</a></li>
+      <!--
+                -->
+      <li><a href="#contact">Sign Up</a></li>
+    </ul>
+  </nav>
+
+  <div id="mapid"></div>
+  <div class="container1" width="1" height="1">
+    <!-- <div id="title">Choose your buddy</div> -->
+    <form action="./actionpage.php" method="post">
+      <input type="text" name="start" id="start" placeholder="Enter your city">
+      <button type="button" name="button">Find buddies nearby</button>
+
+      <!--<input name="reason" type="radio" id="shopping" value="shopping">
+                <label for="shopping">Grocery/Shopping</label><br>
+                <input name="reason" type="radio" id="commute" value="commute">
+                <label for="commute">Travel Home/Office</label><br>
+                <input name="reason" type="radio" id="sos" value="sos">
+                <label for="sos">Feeling Unsafe</label><br>
+                <input name="reason" type="radio" id="other" value="other">
+                <label for="other">Other</label><br>
+                <input type="reset" value="Reset">-->
+    </form>
+
+    <div class="name-list">
+      <ul>
+        <li>
+          <div class="profile profile-name">Jane Doe</div>
+          <div class="contact-person"><img src="phone-call.svg" alt="" width="25px" height="25px"></div>
+          <div class="contact-person"><img src="chat.svg" alt="" width="25px" height="25px"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  </div>
+  <script>
+    var mymap = L.map('mapid').setView([15.257378746912245, 73.966559567638], 13);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+maxZoom: 18,
+id: 'mapbox/streets-v11',
+tileSize: 512,
+zoomOffset: -1,
+accessToken: 'pk.eyJ1IjoibG9sbGEtc2FpIiwiYSI6ImNrbTlhMHFybjFmdjEyeGp4OGxsbDgzMWUifQ.0TuzGxjt9l2jBpvfoPDVyA'
+}).addTo(mymap);
+
+
+var marker = L.marker([15.257378746912245, 73.966559567638]).addTo(mymap);
+var marker = L.marker([15.2679587947549, 73.97115555688737]).addTo(mymap);
+marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+
+  </script>
+</body>
+
+</html>
