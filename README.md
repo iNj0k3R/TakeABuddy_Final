@@ -22,6 +22,8 @@ Take A Buddy Website
 run the following command on a terminal in the repo `node app.js`
 this will start the server on localhost:3000
 this app uses the local DB of MongoDB therefore it requires MongoDB to be installed for the database to function
+this app cannot show the exact location since our systems are not gps compatible so you need to hardcode the latitude and longitude of a person after you set up their accounts in the DB for the maps to work correctly we intend on solving this problem by porting this project to a mobile based application
+Log in using the credentials of a woman to locate all women having a TakeABuddy account in that city on the map
 
 ### Problems faced
 1. Since we are a team of beginners, implementing backend was tricky as we had to implement maps in our website.
